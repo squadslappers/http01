@@ -32,15 +32,16 @@ class Posts extends Component {
     postSelectedHandler = (id) => {
         this.setState({selectedPostId: id});
     }
-    
+
     render () {
         let posts = <p style={{textAlign: 'center'}}>Something went wrong!</p>;
         if (!this.state.error) {
             posts = this.state.posts.map(post => {
-                return <Post 
-                    key={post.id} 
-                    title={post.title} 
+                return <Post
+                    key={post.id}
+                    title={post.title}
                     author={post.author}
+                    // {...this.props}
                     clicked={() => this.postSelectedHandler(post.id)} />;
             });
         }
