@@ -15,7 +15,8 @@ class Blog extends Component {
                         <ul>
                             <li><Link to="/">Home</Link></li>
                             <li><Link to={{
-                                pathname: '/new-post',
+                              // This is a dynamically-built 'relative path.' If you ever want to build a link that appends the path to the end of the current path, use this approach! Otherwise, it always generates an absolute path.
+                                pathname: this.props.match + '/new-post',
                                 hash: '#submit',
                                 search: '?quick-submit=true'
                             }}>New Post</Link></li>
