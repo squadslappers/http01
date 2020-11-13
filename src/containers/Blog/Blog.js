@@ -12,28 +12,31 @@ class Blog extends Component {
         return (
             <div className="Blog">
                 <header>
-                    <nav>
-                        <ul>
-                            {/* "active" is the default anyway */}
-                            <li><NavLink activeClassName="active" to="/" exact
-                            activeStyle={{
-                              color: '#fa923f',
-                              textDecoration: 'underline'
-                            }}>Home</NavLink></li>
-                            <li><NavLink to={{
-                              // This is a dynamically-built 'relative path.' If you ever want to build a link that appends the path to the end of the current path, use this approach! Otherwise, it always generates an absolute path.
-                                // pathname: this.props.match + '/new-post',
-                                pathname: '/new-post',
-                                hash: '#submit',
-                                search: '?quick-submit=true'
-                            }}>New Post</NavLink></li>
-                        </ul>
-                    </nav>
+                  <nav>
+                    <ul>
+                      {/* "active" is the default anyway */}
+                      <li><NavLink
+                        activeClassName="active"
+                        to="/posts" exact
+                        activeStyle={{
+                          color: '#fa923f',
+                          textDecoration: 'underline'
+                        }}
+                      >Posts</NavLink></li>
+                      <li><NavLink to={{
+                        // This is a dynamically-built 'relative path.' If you ever want to build a link that appends the path to the end of the current path, use this approach! Otherwise, it always generates an absolute path.
+                          // pathname: this.props.match + '/new-post',
+                          pathname: '/new-post',
+                          hash: '#submit',
+                          search: '?quick-submit=true'
+                      }}>New Post</NavLink></li>
+                    </ul>
+                  </nav>
                 </header>
                 {/* <Route path="/" exact render={() => <h1>Home</h1>} />
                 <Route path="/" render={() => <h1>Home 2</h1>} /> */}
                 <Switch>
-                  <Route exact path="/" component={Posts} />
+                  <Route exact path="/posts" component={Posts} />
                   <Route path="/new-post" component={NewPost} />
                   <Route exact path="/posts/:id" component={FullPost} />
                 </Switch>
